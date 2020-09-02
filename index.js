@@ -7,7 +7,7 @@ const usersRouter = require("./users/users-router")
 const db = require("./database/config")
 
 const server = express()
-const port = process.env.PORT || 5000
+const port = 5000
 
 server.use(helmet())
 server.use(cors())
@@ -22,7 +22,7 @@ server.use(session({
 	}),
 }))
 
-server.use(usersRouter)
+server.use('/api', usersRouter)
 
 server.use((err, req, res, next) => {
 	console.log(err)
